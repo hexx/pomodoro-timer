@@ -3,9 +3,6 @@ package com.github.hexx
 import scala.swing._
 import scala.swing.event._
 
-import javax.swing.SwingUtilities
-import java.awt.Toolkit
-
 object TimeType extends Enumeration {
   val Work = Value("作業")
   val Break = Value("休憩")
