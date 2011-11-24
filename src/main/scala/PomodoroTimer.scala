@@ -67,7 +67,6 @@ object PomodoroTimer extends SwingApplication {
 class PomodoroTimerApp extends xsbti.AppMain {
   def run(config: xsbti.AppConfiguration) = {
     Swing.onEDT { PomodoroTimer.startup(config.arguments) }
-    Exit(0)
   }
 }
 
