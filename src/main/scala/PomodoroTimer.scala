@@ -3,6 +3,9 @@ package com.github.hexx
 import scala.swing._
 import scala.swing.event._
 
+import javax.swing.SwingUtilities
+import java.awt.Toolkit
+
 object TimeType extends Enumeration {
   val Work = Value("作業")
   val Break = Value("休憩")
@@ -66,7 +69,9 @@ object PomodoroTimer extends SwingApplication {
 
 class PomodoroTimerApp extends xsbti.AppMain {
   def run(config: xsbti.AppConfiguration) = {
-    Swing.onEDT { PomodoroTimer.startup(config.arguments) }
+    PomodoroTimer.main(config.arguments)
+    Thread.currentThread.join
+    Exit(0)
   }
 }
 
