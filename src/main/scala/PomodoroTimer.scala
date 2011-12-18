@@ -53,14 +53,15 @@ object PomodoroTimer extends SwingApplication {
     currentWindow.visible = true
   }
   def toggleWindow {
-    val tempWindow = nextWindow
-    currentWindow.visible = false
-    val sleepTime = currentWindow.textField.text.toInt
-    println(currentWindow.timeType + "時間: " + sleepTime + "分")
-    Thread.sleep(1000 * 60 * sleepTime)
-    nextWindow = currentWindow
-    currentWindow = tempWindow
-    currentWindow.visible = true
+    for (sleepTime <- catching(classOf[NumberFormatException]) opt currentWindow.textField.text.toInt) {
+      val tempWindow = nextWindow
+      currentWindow.visible = false
+      println(currentWindow.timeType + "時間: " + sleepTime + "分")
+      Thread.sleep(1000 * 60 * sleepTime)
+      nextWindow = currentWindow
+      currentWindow = tempWindow
+      currentWindow.visible = true
+    }
   }
 }
 
