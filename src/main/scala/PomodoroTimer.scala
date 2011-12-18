@@ -2,6 +2,7 @@ package com.github.hexx
 
 import scala.swing._
 import scala.swing.event._
+import scala.util.control.Exception._
 
 object TimeType extends Enumeration {
   val Work = Value("作業")
