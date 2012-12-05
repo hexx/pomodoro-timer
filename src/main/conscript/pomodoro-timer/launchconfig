@@ -9,3 +9,4 @@
   local
   maven-central
   sonatype-oss-releases
+  hexx-releases: http://hexx.github.com/maven/releases
